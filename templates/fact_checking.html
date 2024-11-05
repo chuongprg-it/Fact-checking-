@@ -1,0 +1,170 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fact Checking</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="menubar">
+        <a href="/">Home</a>
+        <a href="/fact_checking">Fact-Checking</a>
+        <a href="/detail_fact_checking">Detail Fact-checking</a>
+    </div>
+    <div class="content">
+        <h1>Fact-Checking</h1>
+        <form method="POST" action="/fact_checking">
+            <input type="text" name="input_text" placeholder="Nhập văn bản của bạn">
+            <button type="submit">FACT-CHECKING</button>
+        </form>
+        <div>
+            {% if result %}
+                {% if result == "Câu nhập không có trong dữ liệu." %}
+                    <p>{{ result }}</p>
+                {% else %}
+                    <h2>Kết quả:</h2>
+                    <p><strong>Claim:</strong>{{ result.input_text }}</p>
+                    <p><strong>Predicted Label:</strong> {{ result.predicted_label }}</p>
+                    <p><strong>Label:</strong> {{ result.label }}</p>
+                    <h3>Xác suất:</h3>
+                    <p><strong>SUPPORTED:</strong> {{ result.probabilities.SUPPORTED }}</p>
+                    <p><strong>REFUTED:</strong> {{ result.probabilities.REFUTED }}</p>
+                    <p><strong>NOT ENOUGH INFORMATION:</strong> {{ result.probabilities['NOT ENOUGH INFORMATION'] }}</p>
+                {% endif %}
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html> -->
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fact Checking</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="menubar">
+        <a href="/">Home</a>
+        <a href="/fact_checking">Fact-Checking</a>
+        <a href="/detail_fact_checking">Detail Fact-checking</a>
+    </div>
+    <div class="content">
+        <h1>Fact-Checking</h1>
+        <form method="POST" action="/fact_checking">
+            <input type="text" name="input_text" placeholder="Nhập văn bản của bạn">
+            <button type="submit">FACT-CHECKING</button>
+        </form>
+        <div class="result">
+            {% if result %}
+                {% if result == "Câu nhập không có trong dữ liệu." %}
+                    <p>{{ result }}</p>
+                {% else %}
+                    <h2>Kết quả:</h2>
+                    <p><strong>Claim:</strong> <span class="claim">{{ result.input_text }}</span></p>
+                    <p><strong>Predicted Label:</strong> <span class="{% if result.predicted_label == result.label %}green{% else %}red{% endif %}">{{ result.predicted_label }}</span></p>
+                    <p><strong>Label:</strong> <span class="green">{{ result.label }}</span></p>
+                    <h3>Xác suất:</h3>
+                    <table class="probabilities">
+                        <tr>
+                            <th class="green">SUPPORTED</th>
+                            <th class="red">REFUTED</th>
+                            <th class="grey">NOT ENOUGH INFORMATION</th>
+                        </tr>
+                        <tr>
+                            <td class="green">{{ result.probabilities.SUPPORTED }}</td>
+                            <td class="red">{{ result.probabilities.REFUTED }}</td>
+                            <td class="grey">{{ result.probabilities['NOT ENOUGH INFORMATION'] }}</td>
+                        </tr>
+                    </table>
+                {% endif %}
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fact Checking</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script>
+        function validateForm() {
+            var inputText = document.forms["factCheckingForm"]["input_text"].value;
+            if (inputText === "") {
+                alert("Vui lòng nhập văn bản của bạn.");
+                return false;
+            }
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <div class="menubar">
+        <a href="/">Home</a>
+        <a href="/fact_checking">Fact-Checking</a>
+        <a href="/detail_fact_checking">Detail Fact-checking</a>
+    </div>
+    <div class="content">
+        <h1>Fact-Checking</h1>
+        <form method="POST" action="/fact_checking" onsubmit="return validateForm()">
+            <input type="text" name="input_text" placeholder="Enter your text">
+            <button type="submit">FACT-CHECKING</button>
+        </form>
+        <div class="result">
+            {% if result %}
+                {% if result == "Câu nhập không có trong dữ liệu." %}
+                    <p> The input sentence is not in the data. </p>
+                {% else %}
+                    <h2 class="result-heading">Result:</h2>
+                    <p><strong>Claim:</strong> <span class="claim">{{ result.input_text }}</span></p>
+                    <p><strong>Predicted Label:</strong> <span class="{% if result.predicted_label == result.label %}green{% else %}red{% endif %}">{{ result.predicted_label }}</span></p>
+                    <p><strong>Label:</strong> <span class="green">{{ result.label }}</span></p>
+                    <h3>Predictions for each label:</h3>
+                    <table class="probabilities-2">
+                        <tr>
+                            <th class="green">SUPPORTED</th>
+                            <th class="red">REFUTED</th>
+                            <th class="grey">NOT ENOUGH INFORMATION</th>
+                        </tr>
+                        <tr>
+                            <td class="green">{{ result.probabilities.SUPPORTED }}</td>
+                            <td class="red">{{ result.probabilities.REFUTED }}</td>
+                            <td class="grey">{{ result.probabilities['NOT ENOUGH INFORMATION'] }}</td>
+                        </tr>
+                    </table>
+
+                    <h3>Evidence:</h3>
+                    <table class="probabilities">
+                        <tr>
+                            <th class="yellow">Gold Evidence</th>
+                            <th class="green">Predicted Evidence</th>
+                        </tr>
+                        <tr>
+                            <!-- <td class="yellow">{{ result.evidence }}</td> -->
+                            <!-- <td class="green">{{ result.predicted_evidence }}</td> -->
+                            <td class="yellow">
+                                {% for item in result.evidence %}
+                                    <p>{{ item }}</p>
+                                {% endfor %}
+                            </td>
+                            <td class="green">
+                                {% for item in result.predicted_evidence %}
+                                    <p>{{ item }}</p>
+                                {% endfor %}
+                            </td>
+                        </tr>
+                    </table>
+                {% endif %}
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>

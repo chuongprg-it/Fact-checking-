@@ -1,0 +1,56 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fact Verification Website</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="menubar">
+        <a href="/">Home</a>
+        <a href="/fact_checking">Fact-Checking</a>
+        <a href="/detail_fact_checking">Detail Fact-checking</a>
+    </div>
+    <div class="content">
+        <h1>Welcome to Fact Verification Website</h1>
+        <p>Chọn một mục từ menubar để tiếp tục.</p>
+    </div>
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fact Verification Website</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <div class="menubar">
+        <a href="/">Home</a>
+        <a href="/fact_checking">Fact-Checking</a>
+        <a href="/detail_fact_checking">Detail Fact-checking</a>
+    </div>
+    <div class="content">
+        <h1>Welcome to Fact Verification Website</h1>
+        
+        <div class="intro">
+            <p>Our platform helps you verify the authenticity of information quickly and efficiently.</p>
+        </div>
+        <p class="intro-1">Select an item from the menubar to continue!</p>
+        <div class="animation">
+            <i class="fas fa-search fa-3x"></i>
+            <i class="fas fa-check-circle fa-3x"></i>
+            <i class="fas fa-times-circle fa-3x"></i>
+        </div>
+        <p class="intro-2">OR</p>
+        <div class="center-button">
+            <button onclick="window.location.href='/fact_checking'">FACT CHECKING NOW</button>
+        </div>
+    </div>
+</body>
+</html>

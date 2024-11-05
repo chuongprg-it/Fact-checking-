@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fact Verification Website</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Fact Verification</h1>
+    <form method="POST" action="/evidence_retrieval">
+        <input type="text" name="input_text" placeholder="Nhập văn bản của bạn">
+        <button type="submit">Evidence Retrieval</button>
+    </form>
+    <form method="POST" action="/verdict_prediction">
+        <input type="text" name="input_text" placeholder="Nhập văn bản của bạn">
+        <button type="submit">Verdict Prediction</button>
+    </form>
+    <div>
+        {% if evidence %}
+            <h2>Bằng chứng:</h2>
+            <p>{{ evidence }}</p>
+        {% endif %}
+        {% if verdict %}
+            <h2>Kết quả Dự đoán:</h2>
+            <p>{{ verdict }}</p>
+        {% endif %}
+    </div>
+</body>
+</html>

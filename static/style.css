@@ -1,0 +1,613 @@
+/* body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.menubar {
+    background-color: #333;
+    overflow: hidden;
+}
+
+.menubar a {
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.menubar a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+.content {
+    padding: 20px;
+}
+
+input[type="text"] {
+    width: 300px;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+button {
+    padding: 10px 20px;
+    margin: 10px 0;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+} */
+
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f4f4f9;
+}
+
+.menubar {
+    background-color: #333;
+    overflow: hidden;
+}
+
+.menubar a {
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.menubar a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+.content {
+    padding: 20px;
+    text-align: center;
+}
+
+.intro {
+    margin-top: 20px;
+    font-size: 1.5em;
+}
+
+.intro-1 {
+    margin-top: 20px;
+    font-size: 1.5em;
+    color: #4CAF50;
+}
+
+.intro-2 {
+    margin-top: 50px;
+    font-size: 3em;
+    color: #4CAF50;
+}
+
+
+.animation {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.animation i {
+    color: #4CAF50;
+    animation: bounce 2s infinite;
+}
+
+.animation i:nth-child(2) {
+    animation-delay: 0.5s;
+}
+
+.animation i:nth-child(3) {
+    animation-delay: 1s;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-30px);
+    }
+    60% {
+        transform: translateY(-15px);
+    }
+}
+
+.center-button {
+    margin-top: 50px;
+}
+
+.center-button button {
+    padding: 15px 30px;
+    font-size: 1.2em;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.center-button button:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f4f4f9;
+}
+
+.menubar {
+    background-color: #333;
+    overflow: hidden;
+}
+
+.menubar a {
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.menubar a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+.content {
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+form {
+    margin-bottom: 20px;
+}
+
+input[type="text"] {
+    width: 300px;
+    padding: 10px;
+    margin: 10px 0;
+    font-size: 1em;
+}
+
+button {
+    padding: 10px 20px;
+    margin: 10px 0;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+button:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+}
+
+.result {
+    text-align: center;
+    margin: 20px auto;
+    width: 80%;
+}
+
+.result p, .result h2, .result h3 {
+    margin: 10px 0;
+    font-size: 1em;
+}
+
+.result .claim {
+    color: black;
+    font-weight: bold;
+}
+
+.result .green {
+    color: #4CAF50;
+}
+
+.result .red {
+    color: #f44336;
+}
+
+.result .grey {
+    color: #9e9e9e;
+}
+
+.result-heading-2 .red {
+    color: #f44336;
+}
+
+.result-heading-2 .green {
+    color: #4CAF50;
+}
+
+
+table.probabilities {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+table.probabilities th, table.probabilities td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+table.probabilities th.green {
+    background-color: #4CAF50;
+    color: white;
+}
+
+table.probabilities th.red {
+    background-color: #f44336;
+    color: white;
+}
+
+table.probabilities th.grey {
+    background-color: #9e9e9e;
+    color: white;
+}
+
+table.probabilities td.green {
+    color: #4CAF50;
+}
+
+table.probabilities td.red {
+    color: #f44336;
+}
+
+table.probabilities td.grey {
+    color: #9e9e9e;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f4f4f9;
+}
+
+.menubar {
+    background-color: #333;
+    overflow: hidden;
+}
+
+.menubar a {
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.menubar a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+.content {
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+form {
+    margin-bottom: 20px;
+}
+
+input[type="text"] {
+    width: 300px;
+    padding: 10px;
+    margin: 10px 0;
+    font-size: 1em;
+}
+
+button {
+    padding: 10px 20px;
+    margin: 10px 0;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+button:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+}
+
+.result {
+    text-align: center;
+    margin: 20px auto;
+    width: 80%;
+}
+
+.result p, .result h2, .result h3 {
+    margin: 10px 0;
+    font-size: 1em;
+}
+
+.result .result-heading {
+    font-size: 1.5em;
+    color: #333;
+    margin-top: 30px;
+    padding-top: 10px;
+    border-top: 2px solid #ddd;
+}
+
+.result-heading-2 {
+    font-size: 1.5em;
+    color: #333;
+    margin-top: 30px;
+    padding-top: 10px;
+    border-top: 2px solid #ddd;
+}
+
+.result .claim {
+    color: black;
+    font-weight: bold;
+}
+
+.result .green {
+    color: #4CAF50;
+}
+
+/* .result .yellow {
+    color: #FFD700;
+} */
+
+.result .red {
+    color: #f44336;
+}
+
+.result .grey {
+    color: #9e9e9e;
+}
+
+table.probabilities {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+table.probabilities th, table.probabilities td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+table.probabilities th.green {
+    background-color: #4CAF50;
+    color: white;
+}
+
+table.probabilities th.red {
+    background-color: #f44336;
+    color: white;
+}
+
+table.probabilities th.grey {
+    background-color: #9e9e9e;
+    color: white;
+}
+
+table.probabilities td.green {
+    color: #4CAF50;
+}
+
+table.probabilities td.red {
+    color: #f44336;
+}
+
+table.probabilities td.grey {
+    color: #9e9e9e;
+}
+
+
+.evidence-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+.evidence-table th, .evidence-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.evidence-table th {
+    background-color: #f2f2f2;
+}
+
+.evidence-table td {
+    vertical-align: top;
+}
+
+.evidence-table p {
+    margin: 0;
+    padding: 4px 0;
+}
+
+
+.menubar {
+    background-color: #333;
+    overflow: hidden;
+}
+
+.menubar a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.menubar a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+.content {
+    padding: 20px;
+}
+
+h1, h2, h3 {
+    color: #333;
+}
+
+form {
+    margin-bottom: 20px;
+}
+
+/* input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+} */
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    margin: 5px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 12px;
+    text-align: center;
+}
+
+th {
+    background-color: #f2f2f2;
+    color: #333;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+h3 {
+    text-align: left;
+}
+
+.probabilities-3 td.green, .probabilities-3 td.red, .probabilities-3 td.grey {
+    width: 33%;
+}
+
+table.probabilities-3 th.green {
+    background-color: #4CAF50;
+    color: white;
+}
+
+table.probabilities-3 th.red {
+    background-color: #f44336;
+    color: white;
+}
+
+table.probabilities-3 th.grey {
+    background-color: #9e9e9e;
+    color: white;
+}
+
+table.probabilities-3 td.green {
+    color: #4CAF50;
+}
+
+table.probabilities-3 td.red {
+    color: #f44336;
+}
+
+table.probabilities-3 td.grey {
+    color: #9e9e9e;
+}
+
+.probabilities-2 td.green, .probabilities-2 td.red, .probabilities-2 td.grey {
+    width: 33%;
+}
+
+table.probabilities-2 th.green {
+    background-color: #4CAF50;
+    color: white;
+}
+
+table.probabilities-2 th.red {
+    background-color: #f44336;
+    color: white;
+}
+
+table.probabilities-2 th.grey {
+    background-color: #9e9e9e;
+    color: white;
+}
+
+table.probabilities-2 td.green {
+    color: #4CAF50;
+}
+
+table.probabilities-2 td.red {
+    color: #f44336;
+}
+
+table.probabilities-2 td.grey {
+    color: #9e9e9e;
+}
+

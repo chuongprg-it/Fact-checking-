@@ -1,0 +1,44 @@
+Confusion Matrix:
+
+[[3299  609    0]
+ [1129 2352    0]
+ [ 314  187    0]]
+
+Evidence precision: 0.19
+Evidence recall:    0.55
+Evidence F1:        0.28
+Label accuracy:     0.72
+feverous score:        0.43
+
+
+06/26/2024 05:44:51 - INFO - task_metric -  compute_metrics class_rep :                  precision    recall  f1-score   support
+
+       SUPPORTS       0.70      0.84      0.76      3908
+        REFUTES       0.75      0.68      0.71      3481
+NOT ENOUGH INFO       0.00      0.00      0.00       501
+
+       accuracy                           0.72      7890
+      macro avg       0.48      0.51      0.49      7890
+   weighted avg       0.67      0.72      0.69      7890
+
+06/26/2024 05:44:51 - INFO - task_metric -  compute_metrics acc : 0.7162230671736375 recall : 0.7162230671736375 precision : 0.7162230671736375 f1 : 0.7162230671736375
+06/26/2024 05:44:51 - INFO - task_metric -  compute_metrics conf_matrix : [[3299  609    0]
+ [1129 2352    0]
+ [ 314  187    0]]
+Feverous scores...
+feverous score: 0.43307984790874526
+label accuracy: 0.7162230671736375
+evidence precision: 0.19042474973882917
+evidence recall: 0.5506970849176173
+evidence f1: 0.28299356373962925
+Confusion Matrix:
+
+[[3299  609    0]
+ [1129 2352    0]
+ [ 314  187    0]]
+
+Evidence precision: 0.19
+Evidence recall:    0.55
+Evidence F1:        0.28
+Label accuracy:     0.72
+feverous score:        0.43

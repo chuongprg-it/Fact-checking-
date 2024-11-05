@@ -1,0 +1,177 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail Fact Checking</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="menubar">
+        <a href="/">Home</a>
+        <a href="/fact_checking">Fact-Checking</a>
+        <a href="/detail_fact_checking">Detail Fact-checking</a>
+    </div>
+    <div class="content">
+        <h1>Detail Fact-Checking</h1>
+        <form method="POST" action="/detail_fact_checking">
+            <input type="text" name="input_text" placeholder="Nhập văn bản của bạn">
+            <button type="submit">Detail Fact-checking</button>
+        </form>
+        <div>
+            {% if detailed_result %}
+                <h2>Kết quả chi tiết:</h2>
+                <p>{{ detailed_result }}</p>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html> -->
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail Fact Checking</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="menubar">
+        <a href="/">Home</a>
+        <a href="/fact_checking">Fact-Checking</a>
+        <a href="/detail_fact_checking">Detail Fact-checking</a>
+    </div>
+    <div class="content">
+        <h1>Detail Fact-Checking</h1>
+        <form method="POST" action="/detail_fact_checking">
+            <input type="text" name="input_text" placeholder="Nhập văn bản của bạn">
+            <button type="submit" formaction="/evidence_retrieval">Evidence Retrieval</button>
+            <button type="submit" formaction="/verdict_verification">Verdict Verification</button>
+        </form>
+        <div>
+            {% if result %}
+                <h2>Input:</h2>
+                <p>{{ result.input_text }}</p>
+                {% if result.message %}
+                    <p>{{ result.message }}</p>
+                {% else %}
+                    <h2>Result Evidence Retrieval:</h2>
+                    <p><strong>Text Evidence:</strong> {{ result.text_evidence }}</p>
+                    <p><strong>Table Evidence:</strong> {{ result.table_evidence }}</p>
+                {% endif %}
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail Fact Checking</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="menubar">
+        <a href="/">Home</a>
+        <a href="/fact_checking">Fact-Checking</a>
+        <a href="/detail_fact_checking">Detail Fact-checking</a>
+    </div>
+    <div class="content">
+        <h1>Detail Fact-Checking</h1>
+        <form method="POST" action="/detail_fact_checking">
+            <input type="text" name="input_text" placeholder="Enter your text">
+            <button type="submit" formaction="/evidence_retrieval">Retrieval and Verification</button>
+            <!-- <button type="submit" formaction="/verdict_verification">Verdict Verification</button> -->
+        </form>
+        <div div class="result">
+            {% if result %}
+                <!-- <h2>Input:</h2> -->
+                <!-- <p>{{ result.input_text }}</p> -->
+                {% if result == "Câu nhập không có trong dữ liệu." %}
+                    <p> The input sentence is not in the data. </p>
+                <!-- {% elif result == ' ' %}
+                    <p>Yêu cầu nhập văn bản để thực hiện fact-checking.</p> -->
+                {% else %}
+                    <h2 class="result-heading-2">Input:</h2>
+                    <p>{{ result.input_text }}</p>
+                    <h2 class="result-heading-2">Result Evidence Retrieval:</h2>
+                    <h3>Text Evidence:</h3>
+                    <table border="1">
+                        <tr>
+                            <th>wiki_page</th>
+                            <th>local_page</th>
+                            <th>detail_evidence</th>
+                        </tr>
+                        {% for evidence in result.text_evidence %}
+                        <tr>
+                            <td>{{ evidence.wiki_page }}</td>
+                            <td>{{ evidence.local_page }}</td>
+                            <td>{{ evidence.detail_evidence }}</td>
+                        </tr>
+                        {% endfor %}
+                    </table>
+                    <h3>Table Evidence:</h3>
+                    <table border="1">
+                        <tr>
+                            <th>wiki_page</th>
+                            <th>local_page</th>
+                            <th>detail_evidence</th>
+                        </tr>
+                        {% for evidence in result.table_evidence %}
+                        <tr>
+                            <td>{{ evidence.wiki_page }}</td>
+                            <td>{{ evidence.local_page }}</td>
+                            <td>{{ evidence.detail_evidence }}</td>
+                        </tr>
+                        {% endfor %}
+                    </table>
+                    <h2 class="result-heading-2">Result Verdict Verification:</h2>
+                    <p><strong>Claim:</strong> <span class="claim">{{ result.input_text }}</span></p>
+                    <p><strong>Predicted Label:</strong> <span class="{% if result.predicted_label == result.label %}green{% else %}red{% endif %}">{{ result.predicted_label }}</span></p>
+                    <p><strong>Label:</strong> <span class="green">{{ result.label }}</span></p>
+                    <h3>Predictions for each label:</h3>
+                    <table class="probabilities-3">
+                        <tr>
+                            <th class="green">SUPPORTED</th>
+                            <th class="red">REFUTED</th>
+                            <th class="grey">NOT ENOUGH INFORMATION</th>
+                        </tr>
+                        <tr>
+                            <td class="green">{{ result.probabilities.SUPPORTED }}</td>
+                            <td class="red">{{ result.probabilities.REFUTED }}</td>
+                            <td class="grey">{{ result.probabilities['NOT ENOUGH INFORMATION'] }}</td>
+                        </tr>
+                    </table>
+
+                    <h3>Evidence:</h3>
+                    <table class="probabilities">
+                        <tr>
+                            <th class="yellow">Gold Evidence</th>
+                            <th class="green">Predicted Evidence</th>
+                        </tr>
+                        <tr>
+                            <!-- <td class="yellow">{{ result.evidence }}</td> -->
+                            <!-- <td class="green">{{ result.predicted_evidence }}</td> -->
+                            <td class="yellow">
+                                {% for item in result.evidence %}
+                                    <p>{{ item }}</p>
+                                {% endfor %}
+                            </td>
+                            <td class="green">
+                                {% for item in result.predicted_evidence %}
+                                    <p>{{ item }}</p>
+                                {% endfor %}
+                            </td>
+                        </tr>
+                    </table>
+                {% endif %}
+                
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>
