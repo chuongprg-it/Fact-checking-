@@ -38,5 +38,6 @@ The system is based on a Dual Transformer Architecture, including:
 2. **Evidence Retrieval**: Use the Evidence Retrieval button to gather information from relevant documents and table data.
 3. **Verification Results**: View classification results with probabilities for SUPPORTED, REFUTED, and NOT ENOUGH INFORMATION.
 
+## Detail Training Model Fact-Checking
 
-
+You can refer to how to train the fact-checking model in the following repo: https://github.com/chuongprg-it/Enhancing-FEVEROUS.git
